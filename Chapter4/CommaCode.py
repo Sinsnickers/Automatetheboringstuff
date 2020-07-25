@@ -11,5 +11,8 @@ def commacode(insertList):
 
 #spam =[]
 spam = ["cat","rat","mouse","elephant"]
+newLine = ",".join(spam)
+print(newLine[2])
 print(str(spam))
-commacode(spam)
+print(newLine)
+#commacode(spam)
