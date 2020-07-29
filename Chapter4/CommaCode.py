@@ -9,10 +9,10 @@ def commacode(insertList):
             buffer.append = insertList[i]
             print(insertList[i] + ", " + insertList[-1])
 
-#spam =[]
-spam = ["cat","rat","mouse","elephant"]
-newLine = ",".join(spam)
-print(newLine[2])
-print(str(spam))
-print(newLine)
-#commacode(spam)
+
+spam = ["cat","rat","mouse","elephant", "eagle"]
+endOfList = spam[-1]
+newEndOfList = " and " + endOfList
+newLine = ", ".join(spam[:-1])
+print(newEndOfList)
+print(newLine + newEndOfList)
