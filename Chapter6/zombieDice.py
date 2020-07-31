@@ -74,8 +74,16 @@ class twoRollsandRollAtZeroBrainsAllIn:
         while diceRollResults is not None:
             shotguns += diceRollResults['shotgun']
             brains += diceRollResults["brains"]
+            #print(gameState['SCORES'])
+            #print(highestScoreThatIsntMine)
             if brains <= 12 and highestScoreThatIsntMine >= 13:
                diceRollResults = zombiedice.roll()
+               try:
+                   brains += diceRollResults["brains"]
+               except:
+                   pass
+               if brains>=13:
+                   break
             elif shotguns  <2:
                 diceRollResults = zombiedice.roll() # roll again
             elif shotguns == 2 and brains == 0:
@@ -109,7 +117,7 @@ class fullAlgo:
                     break
                 elif red ==3:
                     break
-                elif green == 3:
+                elif green >= 2:
                     diceRollResults = zombiedice.roll()
                 else:
                     diceRollResults = zombiedice.roll()
@@ -149,7 +157,7 @@ class partAlgo:
                     break
                 elif red ==3:
                     break
-                elif green == 3:
+                elif green >= 2:
                     diceRollResults = zombiedice.roll()
                 else:
                     diceRollResults = zombiedice.roll()
@@ -190,7 +198,7 @@ class partAlgo2:
                     break
                 elif red ==3:
                     break
-                elif green == 3:
+                elif green >= 2:
                     diceRollResults = zombiedice.roll()
                 else:
                     diceRollResults = zombiedice.roll()
@@ -207,11 +215,11 @@ class partAlgo2:
                 
 
 zombies = (
-    #zombiedice.examples.MonteCarloZombie(name='Monte Carlo40', riskiness=40, numExperiments=50),
+    zombiedice.examples.MonteCarloZombie(name='Monte Carlo40', riskiness=40, numExperiments=50),
     zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 2 Shotguns', minShotguns=2),
-    #zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 1 Shotgun', minShotguns=1),
+    zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 1 Shotgun', minShotguns=1),
     twoRollsandRollAtZeroBrains(name='twoRollsandRollAtZeroBrains'),
-    #twoRollsandRollAtZeroBrainsAllIn(name="twoRollsandRollAtZeroBrainsAllIn"),
+    twoRollsandRollAtZeroBrainsAllIn(name="twoRollsandRollAtZeroBrainsAllIn"),
     fullAlgo(name="fullAlgo"),
     partAlgo(name="partAlgo"),
     partAlgo2(name="partAlgo2"),
@@ -221,16 +229,3 @@ zombies = (
 # Uncomment one of the following lines to run in CLI or Web GUI mode:
 zombiedice.runTournament(zombies=zombies, numGames=100000)
 #zombiedice.runWebGui(zombies=zombies, numGames=100000)
-
-#TODO Try to implement the optimal strat
-#Current Shotguns Rule
-#0 shotguns Always keep rolling.
-#1 shotguns
-#If we must roll 3 red dice, stop at 1 brain.
-#If (rf = 2 and yf = 1) or yc > gc, stop at 2 brains.
-#If (rf = 2 and gf = 1) or gc > yc, stop at 3 brains.
-#If we must roll 3 green dice, roll again.
-#If gf = 2, roll again.
-#2 shotguns
-#With gf = 3, stop at 2 brains.
-#Otherwise, stop at 1 brain.
