@@ -8,7 +8,7 @@ for i in range(10): #10 questions
         secondNumber = random.randint(0,9)
         wrongCount = 0
         while wrongCount <3: #user get 3 tries to answer correct, after that we go to next question
-            if pyip.inputInt(f"{firstNumber} * {secondNumber} = ",timeout=8 ) == firstNumber*secondNumber: #after 8 seconds the question is marked incorrect, even if the given answer after 8 seconds is correct
+            if pyip.inputInt(f"{firstNumber} * {secondNumber} = ",timeout=8) == firstNumber*secondNumber: #after 8 seconds the question is marked incorrect, even if the given answer after 8 seconds is correct
                 print("Correct") #if answer is corrct, promp "Correct" for one second
                 wrongCount = 0
                 time.sleep(1)
