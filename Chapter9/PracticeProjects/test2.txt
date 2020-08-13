@@ -1,0 +1,3 @@
+An example will make this clear. Suppose we want to grab floating point numbers in the form of 123, 123.456 and .456. At first sight, the regex \d*\.?\d* appears to do the trick.
+
+To test this, type Number 14.95. in the edit box just below the toolbar on the Test panel. Then click the Find First button. RegexBuddy reports a zero-length match at offset 0. If you click Find Next, RegexBuddy reports a zero-length match at offset 1. Another click on Find Next gives a match at offset 2, and so on until 14.95 is matched at offset 7. To top it off, the full stop at the end of the string is the final match.
