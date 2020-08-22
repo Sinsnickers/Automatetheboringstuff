@@ -20,11 +20,9 @@ for filename in os.listdir(currentFolder):
     wordPart = spamFile.group(1)
     numberPart = spamFile.group(2)
     if f"{currentNumber:03}" == numberPart:
-        print(filename)
+        pass
     else:
         shutil.move(filename,wordPart+f"{currentNumber:03}.txt")
-        print(f"{currentNumber} {numberPart}")
-
     currentNumber = currentNumber + 1
     #search for gaps in filename
 

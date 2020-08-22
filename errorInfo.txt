@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "c:/Users/bero8/BoringStuff/Automatetheboringstuff/Chapter11/tracebackTest.py", line 4, in <module>
+    raise Exception('This is the error message.')
+Exception: This is the error message.
