@@ -15,7 +15,7 @@ browser.maximize_window()
 userName = "bero81mail@gmx.de"
 userAccountField = browser.find_element_by_css_selector("#freemailLoginUsername")
 userAccountField.send_keys(f"{userName}")
-userPassword = "thesin140"
+userPassword = ""
 userPasswordField = browser.find_element_by_css_selector("#freemailLoginPassword")
 userPasswordField.send_keys(f"{userPassword}")
 userPasswordField.submit()
